@@ -19,3 +19,17 @@ def index(request):
     return render(request, 'index.html', {"date": date, "images":images, "location":location, "locations":locations})
 
 
+def search_images(request):
+    locations = Location.get_location()
+    if 'keyword' in request.GET and request.GET["keyword"]:
+        search_term = request.GET.get("keyword")
+        searched_images = Image.search_by_categ(search_term)
+        message = f"{search_term}"
+
+        return render(request, 'search.html', {"message":message,"images": searched_images, "locations":locations})
+
+    else:
+        message = "You haven't searched for any term"
+        return render(request, 'search.html', {"message":message, "locations":locations})
+
+
