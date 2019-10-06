@@ -51,3 +51,9 @@ def location(request, location):
     message = f"{location}"
     return render(request, 'locations.html', {"message":message, "images":images, "locations":locations})
 
+
+def navlocation(request):
+    
+    locations = Location.get_location()
+
+    return render(request, 'navbar.html', {"locations":locations})
