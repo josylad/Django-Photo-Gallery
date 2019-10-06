@@ -36,7 +36,7 @@ html, body {
 
 /* To change the amount of columns on larger devices, uncomment the code below */
 
-@media (min-width: 768px) and (max-width: 991px) {
+/* @media (min-width: 768px) and (max-width: 991px) {
   .grid-sizer,
   .grid-item {
     width: 33.333%;
@@ -53,7 +53,7 @@ html, body {
   .grid-item {
     width: 20%;
   }
-}
+} */
 
 .grid-item {
   float: left;
