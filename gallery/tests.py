@@ -22,3 +22,22 @@ class CategoryTestCase(TestCase):
         
         
 
+class LocationTestCase(TestCase):
+    
+    def setUp(self):
+        self.location = Location(location = 'Lagos')
+        
+    def test_instance(self):
+        self.assertTrue(isinstance(self.location, Location))
+        
+    def test_save_locations(self):
+        self.location.save_location()
+        all_locations = Location.objects.all()
+        self.assertTrue(len(all_locations) > 0)
+        
+    def test_get_locations(self):
+        self.location.save_location()
+        all_locations = Location.objects.all()
+        self.assertTrue(len(all_locations) > 0)
+        
+        
