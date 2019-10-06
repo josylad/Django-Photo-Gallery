@@ -33,3 +33,15 @@ def search_images(request):
         return render(request, 'search.html', {"message":message, "locations":locations})
 
 
+def get_image(request, id):
+        locations = Location.get_location()
+        try:
+            image = Image.objects.get(pk = id)
+            print(image)
+            
+        except ObjectDoesNotExist:
+            raise Http404()
+        
+        return render(request, "images.html", {"image":image, "locations":locations})
+    
+    
