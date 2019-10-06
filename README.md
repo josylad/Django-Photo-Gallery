@@ -1,11 +1,11 @@
 # Jo Photo Gallery
 
-### **This project was done using Python 3.6  and Django.** 
+### **This project was built using Python 3.6  and Django.** 
 
 
 # DESCRIPTION
 
-This is a phot gallery web App where you can view photos and see the details of each photo. 
+This is a photo gallery web Application where you can view photos and see the details of each photo. 
 
 ## User Story
 
