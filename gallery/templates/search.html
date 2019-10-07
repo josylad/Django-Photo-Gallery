@@ -2,18 +2,26 @@
 
 {% block content %}
 
-<div class="container-fluid">
+<div class="">
 
-  <div class="row ml-4 ">
+  <div class="">
     {% if images %}
-      <h2 class="text-center">Found {{ images|length }} images for searched term {{message}}</h2>
+    <div class="jumbotron jumbotron-fluid bg-dark">
+        <div class="">
+          <h2 class="display-5 text-center font-weight-bold text-white">Found {{ images|length }} images for searched term {{message}}</h2>
+        </div>
+      </div>
     {% else %}
-      <h2> Found 0 images for the searched term {{message}}</h2>
+    <div class="jumbotron jumbotron-fluid bg-dark">
+        <div class="">
+          <h2 class="display-5 text-center font-weight-bold text-white">Found 0 images for the searched term {{message}}</h2>
+        </div>
+      </div>
     {% endif %}
 
   </div>
 
-  <div class="row mt-4">
+  <div class="row mt-4 container-fluid">
       <div class="container-fluid">
           
           <div class="grid">
@@ -21,7 +29,7 @@
             {% for image_item in images %}
             <div class="grid-item">
                 
-              <img src="{{image_item.image_file.url}}" height="500px" width="100%" data-toggle="modal" data-target="#basicExampleModal"/>
+              <img src="{{image_item.image_file.url}}" height="500px" width="100%" data-toggle="modal" data-target="#img{{image_item.id}}"/>
             </div>
 
             {% endfor %}
@@ -32,8 +40,8 @@
 
             <!-- Modal starts here -->
             {% for image_item in images %}
-            <div class="modal fade" id="basicExampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModal3Label" aria-hidden="true">
-              <div class="modal-dialog modal-lg" role="document">
+            <div class="modal fade" id="img{{image_item.id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModal3Label" aria-hidden="true">
+              <div class="modal-dialog" role="document">
                 <div class="modal-content">
                   <div class="modal-header">
                     <h5 class="modal-title" id="exampleModal3Label">{{ image_item.image_name }}</h5>
@@ -44,23 +52,22 @@
                   <div class="modal-body">
                     
                             
-                      <div class=""><a href="{{image_item.image_file.url}}" data-lightbox="photos">
+                      <div class="">
                         <figure class="">
                           <img class="img-fluid" src="{{image_item.image_file.url}}"></a>
                             <figcaption>
                                 <!-- Image title -->
                                 <h3><a class="font-weight-bold mb-3 black-text" href="/image/{{image_item.id}}">{{ image_item.image_name }}</a></h3>
                                 <!-- Excerpt -->
-                                <p class="dark-grey-text">{{ image_item.description|truncatechars:400 }}</p>
+                                <p class="dark-grey-text">{{ image_item.description }}</p>
                                 <!-- Image data -->
                                 <p>Posted: {{image_item.pub_date|timesince}} ago, <br> Location: <a href="/location/{{image_item.location}}"> {{ image_item.location }} </a> <br>
-                                  <span class=""></span> <span> Category: {{ image_item.category}}</span>
+                                 <span> Category: <a href="/category/{{image_item.category}}"> {{ image_item.category}} </a></span>
                                 </p>
                                 <!-- The text field -->
-                                    Copy Image Link: <input type="text" value="jo.com/image/{{image_item.id}}" id="{{image_item.id}}">
+                                    Copy Image Link: <input class="form-control form-control-sm" type="text" value="jogallery.herokuapp.com/image/{{image_item.id}}" id="{{image_item.id}}" readonly="readonly">
         
                                     <!-- The button used to copy the text -->
-                                    <!-- <button >Copy Image Link</button> -->
         
                           </figcaption>
                         </figure>
@@ -79,5 +86,7 @@
                     
                      
 </div>
+
+
 
 {% endblock %}

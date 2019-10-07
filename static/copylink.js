@@ -1,5 +1,5 @@
 $(function() {
-    $('input').click(function() {
+    $("input").click(function() {
     $(this).focus();
     $(this).select();
     document.execCommand('copy');

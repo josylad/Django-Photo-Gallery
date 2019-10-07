@@ -35,8 +35,11 @@
     {% include "navbar.html" %}
 
     {% block content %} 
-
-    <h1 class="text-center pt-2 mt-2 font-weight-bold">Welcome to Jo Photo Gallery</h1> 
+    <div class="jumbotron jumbotron-fluid bg-dark">
+        <div class="">
+          <h2 class="display-4 text-center font-weight-bold text-white">Welcome to Jo Photo Gallery</h2>
+        </div>
+      </div>
     
     {%endblock%}
 
@@ -58,7 +61,7 @@
       <script type="text/javascript" src="{% static 'copylink.js' %}"></script>
 
     {% endblock %}
-
+    <div class="pt-4 mt-4 mb-4 pb-4"></div>
     <!-- Footer -->
 <footer class="page-footer font-small primary-color-dark mt-4 pt-4">
 
