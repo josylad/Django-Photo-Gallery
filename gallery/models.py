@@ -83,6 +83,11 @@ class Image(models.Model):
         return images
     
     @classmethod
+    def get_by_category(cls, category):
+        images = cls.objects.filter(category__category=category)
+        return images
+    
+    @classmethod
     def get_image(request, id):
         locations = Location.get_location()
         try:
