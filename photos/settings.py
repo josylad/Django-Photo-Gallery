@@ -57,7 +57,7 @@ SECRET_KEY = 'h^p7jop=#$b4s@ife)w=#vz=ok!*f1ry-2a7!+mgj182+kk%af'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['jogallery.herokuapp.com']
 
 
 # Application definition
