@@ -82,11 +82,11 @@ run:
 ## Support and Contact
 ---
 
--Twitter: [@Josylad](https://twitter.com/josylad/)
+- Twitter: [@Josylad](https://twitter.com/josylad/)
 
--Blog: [Joseph on Medium](https://medium.com/@josylad/)
+- Blog: [Joseph on Medium](https://medium.com/@josylad/)
 
--github-username: Josylad
+- Github username: Josylad
 
 ## License
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
