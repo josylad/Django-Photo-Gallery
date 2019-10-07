@@ -16,7 +16,7 @@ def index(request):
     location = Location.get_location()
     locations = Location.get_location()
 
-    return render(request, 'index.html', {"date": date, "images":images, "location":location, "locations":locations})
+    return render(request, 'index.html', {"date": date, "images":images, "location": location, "locations": locations})
 
 
 def search_images(request):
@@ -26,11 +26,11 @@ def search_images(request):
         searched_images = Image.search_by_categ(search_term)
         message = f"{search_term}"
 
-        return render(request, 'search.html', {"message":message,"images": searched_images, "locations":locations})
+        return render(request, 'search.html', {"message":message,"images": searched_images, "locations": locations})
 
     else:
         message = "You haven't searched for any term"
-        return render(request, 'search.html', {"message":message, "locations":locations})
+        return render(request, 'search.html', {"message": message, "locations":locations})
 
 
 def get_image(request, id):
@@ -52,8 +52,15 @@ def location(request, location):
     return render(request, 'locations.html', {"message":message, "images":images, "locations":locations})
 
 
+def category(request, category):
+    images = Image.get_by_category(category)
+    locations = Location.get_location()
+    message = f"{category}"
+    return render(request, 'category.html', {"message":message, "images":images, "locations":locations})
+
+
 def navlocation(request):
     
     locations = Location.get_location()
 
-    return render(request, 'navbar.html', {"locations":locations})
+    return render(request, 'navbar.html', {"locations": locations})
